@@ -1,7 +1,18 @@
 import antfu from "@antfu/eslint-config";
 
 // @ts-check
-import withNuxt from "./.nuxt/eslint.config.mjs";
+// Only import Nuxt eslint config if .nuxt exists (build time)
+let withNuxt = (config) => config;
+try {
+  const fs = await import("node:fs");
+  if (fs.existsSync("./.nuxt/eslint.config.mjs")) {
+    const { default: nuxtConfig } = await import("./.nuxt/eslint.config.mjs");
+    withNuxt = nuxtConfig;
+  }
+}
+catch {
+  // Fallback if .nuxt doesn't exist
+}
 
 export default withNuxt(antfu({
   type: "app",

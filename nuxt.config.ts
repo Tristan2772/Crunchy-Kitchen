@@ -45,6 +45,14 @@ export default defineNuxtConfig({
       url: process.env.BETTER_AUTH_URL,
     },
   },
+  // Nitro config for Vercel
+  nitro: {
+    preset: "vercel",
+    prerender: {
+      routes: ["/", "/login", "/register"],
+      crawlLinks: false,
+    },
+  },
   // App config
   app: {
     head: {
