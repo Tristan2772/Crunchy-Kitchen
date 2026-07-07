@@ -1,1 +1,0 @@
-import{_ as o}from"./DCk3tcPH.js";import{n as t,c as n,b as s,o as _}from"./Dvra2x-x.js";const a={class:"min-h-screen bg-base-200"},u=t({__name:"auth",setup(c){return(r,m)=>{const e=o;return _(),n("div",a,[s(e)])}}});export{u as default};

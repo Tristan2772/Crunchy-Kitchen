@@ -35,6 +35,11 @@ ENV/
 *~
 .DS_Store
 
+# Vercel
+.vercel
+.vercel/output
+.vercel/cache
+
 # Environment variables
 .env
 .env.local
