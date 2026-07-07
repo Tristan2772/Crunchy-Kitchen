@@ -1,0 +1,60 @@
+{
+  "name": "crunchy-kitchen",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "npx nuxi typecheck",
+    "prepare": "husky",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "mobile:add-android": "cap add android",
+    "mobile:add-ios": "cap add ios",
+    "mobile:sync": "cap sync",
+    "mobile:open-android": "cap open android",
+    "mobile:open-ios": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
+    "@libsql/client": "^0.15.5",
+    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/hints": "^1.0.0-alpha.5",
+    "@nuxt/icon": "^2.2.0",
+    "@nuxtjs/color-mode": "^4.0.0",
+    "@nuxtjs/ionic": "^1.0.2",
+    "@pinia/nuxt": "^0.11.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "better-auth": "^1.2.5",
+    "drizzle-orm": "^0.43.1",
+    "nanoid": "^5.1.5",
+    "nuxt": "^4.2.2",
+    "pinia": "^3.0.2",
+    "tailwindcss": "^4.1.18",
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.7.3",
+    "@capacitor/cli": "^7.2.0",
+    "@iconify-json/tabler": "^1.2.26",
+    "daisyui": "^5.5.14",
+    "drizzle-kit": "^0.31.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-format": "^1.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "typescript": "^5.9.3"
+  },
+  "lint-staged": {
+    "*": "npm run lint"
+  }
+}
