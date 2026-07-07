@@ -7,10 +7,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxt/eslint",
-    "@nuxt/hints",
     "@nuxt/icon",
     "@nuxtjs/color-mode",
-    "@nuxtjs/ionic",
     "@pinia/nuxt",
   ],
   colorMode: {
@@ -27,12 +25,6 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
-  },
-  // Ionic configuration
-  ionic: {
-    integrations: {
-      router: false, // We use Vue Router
-    },
   },
   // Server runtime config
   runtimeConfig: {
