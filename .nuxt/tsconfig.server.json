@@ -29,26 +29,8 @@
       "@@/*": [
         "../*"
       ],
-      "nitropack/types": [
-        "../node_modules/nitropack/types"
-      ],
-      "nitropack/runtime": [
-        "../node_modules/nitropack/runtime"
-      ],
-      "nitropack": [
-        "../node_modules/nitropack"
-      ],
-      "defu": [
-        "../node_modules/defu"
-      ],
-      "h3": [
-        "../node_modules/h3"
-      ],
-      "consola": [
-        "../node_modules/consola"
-      ],
-      "ofetch": [
-        "../node_modules/ofetch"
+      "nuxt": [
+        "../node_modules/nuxt"
       ],
       "@unhead/vue": [
         "../node_modules/@unhead/vue"
@@ -62,23 +44,47 @@
       "@vue/compiler-sfc": [
         "../node_modules/@vue/compiler-sfc"
       ],
-      "unplugin-vue-router/client": [
-        "../node_modules/unplugin-vue-router/client"
-      ],
       "@nuxt/schema": [
         "../node_modules/@nuxt/schema"
       ],
-      "nuxt": [
-        "../node_modules/nuxt"
+      "defu": [
+        "../node_modules/defu"
+      ],
+      "consola": [
+        "../node_modules/consola"
+      ],
+      "ofetch": [
+        "../node_modules/ofetch"
+      ],
+      "crossws": [
+        "../node_modules/crossws"
+      ],
+      "nitropack": [
+        "../node_modules/nitropack"
+      ],
+      "h3": [
+        "../node_modules/h3"
       ],
       "vite/client": [
         "../node_modules/vite/client"
+      ],
+      "nitropack/types": [
+        "../node_modules/nitropack/types"
+      ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
       ],
       "#shared": [
         "../shared"
       ],
       "#shared/*": [
         "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
       ],
       "#build": [
         "./"
@@ -100,7 +106,9 @@
       "esnext",
       "webworker",
       "dom.iterable"
-    ]
+    ],
+    "noUncheckedIndexedAccess": true,
+    "allowArbitraryExtensions": true
   },
   "include": [
     "./types/nitro-nuxt.d.ts",
@@ -114,9 +122,9 @@
     "../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxt/eslint/node_modules",
-    "../node_modules/@nuxt/hints/node_modules",
     "../node_modules/@nuxt/icon/node_modules",
     "../node_modules/@nuxtjs/color-mode/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../dist"

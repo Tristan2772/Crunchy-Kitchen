@@ -10,6 +10,18 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       cdnURL: string,
    },
 
+   turso: {
+      databaseUrl: string,
+
+      authToken: string,
+   },
+
+   betterAuth: {
+      secret: string,
+
+      url: string,
+   },
+
    nitro: {
       envPrefix: string,
    },
