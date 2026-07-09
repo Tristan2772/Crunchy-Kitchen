@@ -1,10 +1,14 @@
+import "dotenv/config";
 import { defineConfig } from "drizzle-kit";
+
+import env from "./app/lib/env";
 
 export default defineConfig({
   out: "./drizzle",
   schema: "./lib/db/schema.ts",
-  dialect: "sqlite",
+  dialect: "turso",
   dbCredentials: {
-    url: process.env.DATABASE_URL || "file:./crunchy-kitchen.db",
+    url: env.TURSO_DATABASE_URL,
+    authToken: env.TURSO_AUTH_TOKEN,
   },
 });

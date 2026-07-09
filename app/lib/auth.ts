@@ -2,29 +2,30 @@ import { drizzleAdapter } from "@better-auth/drizzle-adapter";
 import { betterAuth } from "better-auth";
 import { emailOTP, twoFactor } from "better-auth/plugins";
 
+import env from "../lib/env";
 import { db } from "./db/client";
 import { schema } from "./db/schema";
 
 function isEmailConfigured() {
-  return Boolean(process.env.DEV_MAIL_TO || process.env.SMTP_HOST);
+  return Boolean(env.DEV_MAIL_TO || env.SMTP_HOST);
 }
 
-const googleAuthEnabled = Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
+const googleAuthEnabled = Boolean(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET);
 
 async function sendAuthEmail(subject: string, lines: string[]) {
   if (!isEmailConfigured()) {
-    console.info(`[auth email skipped] ${subject}\n${lines.join("\n")}`);
+    console.warn(`[auth email skipped] ${subject}\n${lines.join("\n")}`);
     return;
   }
 
-  console.info(`[auth email simulated] ${subject}\n${lines.join("\n")}`);
+  console.warn(`[auth email simulated] ${subject}\n${lines.join("\n")}`);
 }
 
 export const auth = betterAuth({
   appName: "Crunchy Kitchen",
-  baseURL: process.env.BETTER_AUTH_URL,
-  secret: process.env.BETTER_AUTH_SECRET,
-  trustedOrigins: [process.env.BETTER_AUTH_URL || "http://localhost:3000"],
+  baseURL: env.BETTER_AUTH_URL,
+  secret: env.BETTER_AUTH_SECRET,
+  trustedOrigins: [env.BETTER_AUTH_URL || "http://localhost:3000"],
   database: drizzleAdapter(db, {
     provider: "sqlite",
     schema,
@@ -40,15 +41,17 @@ export const auth = betterAuth({
       ]);
     },
   },
-  ...(googleAuthEnabled ? {
-    socialProviders: {
-      google: {
-        clientId: process.env.GOOGLE_CLIENT_ID as string,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-        prompt: "select_account",
-      },
-    },
-  } : {}),
+  ...(googleAuthEnabled
+    ? {
+        socialProviders: {
+          google: {
+            clientId: env.GOOGLE_CLIENT_ID as string,
+            clientSecret: env.GOOGLE_CLIENT_SECRET as string,
+            prompt: "select_account",
+          },
+        },
+      }
+    : {}),
   plugins: [
     emailOTP({
       disableSignUp: true,

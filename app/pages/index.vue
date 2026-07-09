@@ -35,16 +35,28 @@ const { openAuthModal } = useAuthUi();
 
         <dl class="mt-12 grid gap-4 sm:grid-cols-3">
           <div class="rounded-[1.75rem] border border-base-300/80 bg-base-100/90 p-5 shadow-sm">
-            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">Protected access</dt>
-            <dd class="mt-3 text-sm leading-6 text-base-content/70">Email and password accounts are enrolled into email-based 2FA so your recipes stay private.</dd>
+            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">
+              Protected access
+            </dt>
+            <dd class="mt-3 text-sm leading-6 text-base-content/70">
+              Email and password accounts are enrolled into email-based 2FA so your recipes stay private.
+            </dd>
           </div>
           <div class="rounded-[1.75rem] border border-base-300/80 bg-base-100/90 p-5 shadow-sm">
-            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">Google shortcut</dt>
-            <dd class="mt-3 text-sm leading-6 text-base-content/70">Use Google as a second sign-in path when your OAuth credentials are configured.</dd>
+            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">
+              Google shortcut
+            </dt>
+            <dd class="mt-3 text-sm leading-6 text-base-content/70">
+              Use Google as a second sign-in path when your OAuth credentials are configured.
+            </dd>
           </div>
           <div class="rounded-[1.75rem] border border-base-300/80 bg-base-100/90 p-5 shadow-sm">
-            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">Local-first auth</dt>
-            <dd class="mt-3 text-sm leading-6 text-base-content/70">The app starts on a local SQLite-compatible database and can move to Turso later without changing the UI flow.</dd>
+            <dt class="text-xs font-black uppercase tracking-[0.28em] text-accent">
+              Local-first auth
+            </dt>
+            <dd class="mt-3 text-sm leading-6 text-base-content/70">
+              The app starts on a local SQLite-compatible database and can move to Turso later without changing the UI flow.
+            </dd>
           </div>
         </dl>
       </div>
@@ -53,8 +65,12 @@ const { openAuthModal } = useAuthUi();
         <div class="w-full max-w-xl rounded-4xl border border-base-300/80 bg-base-100/95 p-6 shadow-2xl shadow-base-content/5 sm:p-8">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-accent">Landing access</p>
-              <h2 class="mt-3 text-3xl font-black text-base-content">Kitchen passport</h2>
+              <p class="text-xs font-black uppercase tracking-[0.28em] text-accent">
+                Landing access
+              </p>
+              <h2 class="mt-3 text-3xl font-black text-base-content">
+                Kitchen passport
+              </h2>
             </div>
             <div class="badge badge-outline badge-lg rounded-full px-4 py-4 text-xs uppercase tracking-[0.24em]">
               {{ session ? 'Active session' : 'Ready to sign in' }}
@@ -63,7 +79,9 @@ const { openAuthModal } = useAuthUi();
 
           <div class="mt-8 space-y-4">
             <div class="rounded-3xl bg-base-200 p-5">
-              <p class="text-sm font-semibold text-base-content">What the auth flow does</p>
+              <p class="text-sm font-semibold text-base-content">
+                What the auth flow does
+              </p>
               <ul class="mt-3 space-y-3 text-sm leading-6 text-base-content/70">
                 <li>1. Sign in with email and password.</li>
                 <li>2. Receive a second-factor email code if your account is enrolled.</li>
@@ -72,9 +90,15 @@ const { openAuthModal } = useAuthUi();
             </div>
 
             <div v-if="session" class="rounded-3xl border border-success/30 bg-success/10 p-5">
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-success">Signed in</p>
-              <p class="mt-3 text-lg font-semibold text-base-content">Welcome back, {{ session.user.name }}.</p>
-              <p class="mt-2 text-sm leading-6 text-base-content/70">Your avatar menu in the header links straight to the dashboard and sign-out actions.</p>
+              <p class="text-xs font-black uppercase tracking-[0.28em] text-success">
+                Signed in
+              </p>
+              <p class="mt-3 text-lg font-semibold text-base-content">
+                Welcome back, {{ session.user.name }}.
+              </p>
+              <p class="mt-2 text-sm leading-6 text-base-content/70">
+                Your avatar menu in the header links straight to the dashboard and sign-out actions.
+              </p>
               <NuxtLink to="/dashboard" class="btn btn-success mt-5 rounded-full px-6 text-success-content">
                 Go to dashboard
               </NuxtLink>

@@ -3,6 +3,7 @@ import { computed, reactive, ref } from "vue";
 
 import { useAuthClient, useAuthSession } from "~/composables/useAuth";
 import { useAuthUi } from "~/composables/useAuthUi";
+
 type AuthStage = "credentials" | "otp";
 
 const auth = useAuthClient();
@@ -82,7 +83,6 @@ async function ensureEmailTwoFactor(password: string) {
 
   if (enableResult.error) {
     infoMessage.value = "Signed in, but email 2FA could not be enabled automatically yet.";
-    return;
   }
 }
 
@@ -217,17 +217,25 @@ async function handleSignOut() {
         </div>
 
         <div class="hidden text-left sm:block">
-          <p class="text-sm font-semibold leading-tight">{{ currentUser.name }}</p>
-          <p class="text-xs opacity-65">{{ currentUser.email }}</p>
+          <p class="text-sm font-semibold leading-tight">
+            {{ currentUser.name }}
+          </p>
+          <p class="text-xs opacity-65">
+            {{ currentUser.email }}
+          </p>
         </div>
       </button>
 
       <ul class="menu dropdown-content z-1 mt-3 w-64 rounded-box border border-base-300 bg-base-100 p-2 shadow-xl">
         <li>
-          <NuxtLink to="/dashboard">Dashboard</NuxtLink>
+          <NuxtLink to="/dashboard">
+            Dashboard
+          </NuxtLink>
         </li>
         <li>
-          <button type="button" @click="handleSignOut">Sign out</button>
+          <button type="button" @click="handleSignOut">
+            Sign out
+          </button>
         </li>
       </ul>
     </div>
@@ -246,7 +254,9 @@ async function handleSignOut() {
         <div class="modal-box max-w-lg border border-base-300 bg-base-100 p-0 shadow-2xl">
           <div class="flex items-start justify-between border-b border-base-300 px-6 py-5">
             <div>
-              <p class="text-xs font-black uppercase tracking-[0.28em] text-accent">Crunchy Kitchen</p>
+              <p class="text-xs font-black uppercase tracking-[0.28em] text-accent">
+                Crunchy Kitchen
+              </p>
               <h3 class="mt-2 text-2xl font-black text-base-content">
                 {{ authStage === 'otp' ? 'Verify your sign-in' : authMode === 'sign-in' ? 'Welcome back' : 'Create your account' }}
               </h3>
@@ -259,7 +269,9 @@ async function handleSignOut() {
               </p>
             </div>
 
-            <button class="btn btn-sm btn-circle btn-ghost" type="button" @click="closeModal">✕</button>
+            <button class="btn btn-sm btn-circle btn-ghost" type="button" @click="closeModal">
+              ✕
+            </button>
           </div>
 
           <div class="space-y-5 px-6 py-6">
@@ -293,12 +305,25 @@ async function handleSignOut() {
             <form v-if="authStage === 'credentials' && authMode === 'sign-in'" class="space-y-4" @submit.prevent="submitSignIn">
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">Email</span>
-                <input v-model="signInForm.email" class="input input-bordered w-full" type="email" placeholder="chef@crunchykitchen.app" required>
+                <input
+                  v-model="signInForm.email"
+                  class="input input-bordered w-full"
+                  type="email"
+                  placeholder="chef@crunchykitchen.app"
+                  required
+                >
               </label>
 
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">Password</span>
-                <input v-model="signInForm.password" class="input input-bordered w-full" type="password" placeholder="At least 8 characters" required minlength="8">
+                <input
+                  v-model="signInForm.password"
+                  class="input input-bordered w-full"
+                  type="password"
+                  placeholder="At least 8 characters"
+                  required
+                  minlength="8"
+                >
               </label>
 
               <label class="label cursor-pointer justify-start gap-3 rounded-box border border-base-300 px-4 py-3">
@@ -315,17 +340,36 @@ async function handleSignOut() {
             <form v-else-if="authStage === 'credentials'" class="space-y-4" @submit.prevent="submitSignUp">
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">Name</span>
-                <input v-model="signUpForm.name" class="input input-bordered w-full" type="text" placeholder="Kitchen captain" required>
+                <input
+                  v-model="signUpForm.name"
+                  class="input input-bordered w-full"
+                  type="text"
+                  placeholder="Kitchen captain"
+                  required
+                >
               </label>
 
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">Email</span>
-                <input v-model="signUpForm.email" class="input input-bordered w-full" type="email" placeholder="chef@crunchykitchen.app" required>
+                <input
+                  v-model="signUpForm.email"
+                  class="input input-bordered w-full"
+                  type="email"
+                  placeholder="chef@crunchykitchen.app"
+                  required
+                >
               </label>
 
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">Password</span>
-                <input v-model="signUpForm.password" class="input input-bordered w-full" type="password" placeholder="At least 8 characters" required minlength="8">
+                <input
+                  v-model="signUpForm.password"
+                  class="input input-bordered w-full"
+                  type="password"
+                  placeholder="At least 8 characters"
+                  required
+                  minlength="8"
+                >
               </label>
 
               <button class="btn btn-accent w-full" type="submit" :disabled="isPending">
@@ -337,7 +381,15 @@ async function handleSignOut() {
             <form v-else class="space-y-4" @submit.prevent="submitOtp">
               <label class="form-control w-full gap-2">
                 <span class="label-text font-semibold">One-time code</span>
-                <input v-model="otpForm.code" class="input input-bordered w-full tracking-[0.3em]" type="text" inputmode="numeric" maxlength="8" placeholder="123456" required>
+                <input
+                  v-model="otpForm.code"
+                  class="input input-bordered w-full tracking-[0.3em]"
+                  type="text"
+                  inputmode="numeric"
+                  maxlength="8"
+                  placeholder="123456"
+                  required
+                >
               </label>
 
               <label class="label cursor-pointer justify-start gap-3 rounded-box border border-base-300 px-4 py-3">
@@ -350,14 +402,26 @@ async function handleSignOut() {
                 Verify code
               </button>
 
-              <button class="btn btn-ghost w-full" type="button" :disabled="isPending" @click="resendOtp">
+              <button
+                class="btn btn-ghost w-full"
+                type="button"
+                :disabled="isPending"
+                @click="resendOtp"
+              >
                 Resend code
               </button>
             </form>
 
-            <div class="divider my-1">or</div>
+            <div class="divider my-1">
+              or
+            </div>
 
-            <button class="btn btn-outline w-full justify-center gap-3" type="button" :disabled="isPending || !googleEnabled" @click="handleGoogleSignIn">
+            <button
+              class="btn btn-outline w-full justify-center gap-3"
+              type="button"
+              :disabled="isPending || !googleEnabled"
+              @click="handleGoogleSignIn"
+            >
               <span class="text-lg">G</span>
               Continue with Google
             </button>
