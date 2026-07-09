@@ -1,5 +1,5 @@
-import { auth } from "~~/app/lib/auth";
+import { fromWebHandler } from "h3";
 
-export default defineEventHandler((event) => {
-  return auth.handler(toWebRequest(event));
-});
+import { auth } from "../../../app/lib/auth";
+
+export default fromWebHandler(auth.handler);
