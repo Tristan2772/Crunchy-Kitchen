@@ -8,6 +8,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/eslint", "@nuxt/hints", "@nuxt/icon"],
   css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      googleAuthEnabled: Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET),
+    },
+  },
   eslint: {
     config: {
       standalone: false,
@@ -18,7 +23,7 @@ export default defineNuxtConfig({
       include: [
         "@vue/devtools-core",
         "@vue/devtools-kit",
-        // "betterauth/vue",
+        "better-auth/vue",
       ],
     },
     plugins: [
