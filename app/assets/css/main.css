@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(248, 250, 252, 0.95), rgba(255, 255, 255, 1)),
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.16), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.12), transparent 28%);
+  color: oklch(0.24 0.02 265);
+  font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+#__nuxt {
+  min-height: 100vh;
+}

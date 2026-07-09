@@ -8,16 +8,22 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "db:auth:generate": "npx auth@latest generate --config ./lib/auth.ts",
+    "db:push": "drizzle-kit push",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "npx nuxi typecheck"
   },
   "dependencies": {
+    "@better-auth/drizzle-adapter": "^1.6.23",
+    "@libsql/client": "^0.15.15",
     "@nuxt/eslint": "^1.12.1",
     "@nuxt/hints": "^1.1.3",
     "@nuxt/icon": "^2.2.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "@tailwindcss/vite": "^4.1.18",
+    "better-auth": "^1.6.23",
+    "drizzle-orm": "^0.45.2",
     "nuxt": "^4.2.2",
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.26",
@@ -29,8 +35,11 @@
     "@types/node": "^25.3.3",
     "@vue/language-core": "^2.0.0",
     "daisyui": "^5.5.19",
+    "drizzle-kit": "^0.31.4",
     "eslint": "^9.39.2",
-    "typescript": "^5.9.3"
+    "eslint-plugin-format": "^2.0.1",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^2.1.10"
   },
   "overrides": {
     "@vercel/nft": "^0.27.4",
